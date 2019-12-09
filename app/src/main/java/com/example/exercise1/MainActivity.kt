@@ -51,12 +51,16 @@ class MainActivity : AppCompatActivity() {
         downPayment.setText("")
         LoanPeriod.setText("")
         interestRate.setText("")
+
+        resultLoanTextView.setText("")
+        resultRateTextView.setText("")
+        resultMRTextView.setText("")
     }
 
     private fun clickHandlerFunction(viewThatIsClicked: View) {
         resultLoanTextView.text = (carPrice.text.toString().toDouble() - downPayment.text.toString().toDouble()).toString()
-        resultRateTextView.text = (carPrice.text.toString().toDouble() * interestRate.text.toString().toDouble() * LoanPeriod.text.toString().toDouble()).toString()
-        resultMRTextView.text = ((carPrice.text.toString().toDouble() + interestRate.text.toString().toDouble()) / LoanPeriod.text.toString().toDouble()/12).toString()
+        resultRateTextView.text = (carPrice.text.toString().toDouble() * LoanPeriod.text.toString().toDouble() * (interestRate.text.toString().toDouble()/100)).toString()
+        resultMRTextView.text = ((carPrice.text.toString().toDouble() + (interestRate.text.toString().toDouble()/100)) / LoanPeriod.text.toString().toDouble()/12).toString()
     }
 
 
